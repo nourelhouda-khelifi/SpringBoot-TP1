@@ -59,11 +59,11 @@ INSERT INTO DISPENSAIRE (CODE, NOM, CONTACT, FONCTION, TELEPHONE, FAX, ADRESSE_I
 
 -- Insertion des commandes
 INSERT INTO COMMANDE (NUMERO, SAISIE_LE, ENVOYEE_LE, PORT, DISTINATAIRE, REMISE, DISPENSAIRE_CODE, ADRESSE_ID) VALUES
-                                                                                                                   (DEFAULT, CAST('2025-12-01 10:30:00' AS TIMESTAMP), CAST('2025-12-05 14:00:00' AS TIMESTAMP), 15.50, 'Hôpital Central Paris', 10.00, 'DSP001', 1),
-                                                                                                                   (DEFAULT, CAST('2025-12-03 09:15:00' AS TIMESTAMP), NULL, 20.00, 'Clinique Lyon Nord', 5.00, 'DSP002', 2),
-                                                                                                                   (DEFAULT, CAST('2025-12-05 11:45:00' AS TIMESTAMP), CAST('2025-12-08 16:30:00' AS TIMESTAMP), 18.75, 'Centre Médical Marseille', 8.50, 'DSP003', 3),
-                                                                                                                   (DEFAULT, CAST('2025-12-07 14:20:00' AS TIMESTAMP), NULL, 22.00, 'Dispensaire Toulouse', 0.00, 'DSP004', 4),
-                                                                                                                   (DEFAULT, CAST('2025-12-10 08:00:00' AS TIMESTAMP), CAST('2025-12-12 10:00:00' AS TIMESTAMP), 12.50, 'Polyclinique Sorbonne', 15.00, 'DSP005', 5);
+                                                                                                                   (DEFAULT, CAST('2024-12-01 10:30:00' AS TIMESTAMP), CAST('2024-12-05 14:00:00' AS TIMESTAMP), 15.50, 'Hôpital Central Paris', 10.00, 'DSP001', 1),
+                                                                                                                   (DEFAULT, CAST('2025-01-03 09:15:00' AS TIMESTAMP), NULL, 20.00, 'Clinique Lyon Nord', 5.00, 'DSP002', 2),
+                                                                                                                   (DEFAULT, CAST('2025-01-05 11:45:00' AS TIMESTAMP), CAST('2025-01-08 16:30:00' AS TIMESTAMP), 18.75, 'Centre Médical Marseille', 8.50, 'DSP003', 3),
+                                                                                                                   (DEFAULT, CAST('2025-01-07 14:20:00' AS TIMESTAMP), NULL, 22.00, 'Dispensaire Toulouse', 0.00, 'DSP004', 4),
+                                                                                                                   (DEFAULT, CAST('2025-01-10 08:00:00' AS TIMESTAMP), CAST('2025-01-12 10:00:00' AS TIMESTAMP), 12.50, 'Polyclinique Sorbonne', 15.00, 'DSP005', 5);
 
 -- Insertion des lignes de commande
 -- Commande 1: Morphine et Étodolac

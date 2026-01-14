@@ -11,7 +11,7 @@ public interface CommandeRepository extends JpaRepository<Commande, Integer> {
 
     @Override
     Optional<Commande> findById(Integer integer);
-    Optional<Commande> findBySaisieLeAfter(Date date);
+    List<Commande> findBySaisieLeAfter(Date date);
 
 
 }
