@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -19,6 +20,7 @@ public class WebApp {
     }
 
     @Bean(initMethod = "start", destroyMethod = "stop")
+    @Profile("!test")
     public Server h2TcpServer() throws SQLException {
         // démarre un serveur TCP H2 sur le port 9092 et autorise les connexions externes
         // La BD est accessible sur jdbc:h2:tcp://localhost:9092/mem:testdb
