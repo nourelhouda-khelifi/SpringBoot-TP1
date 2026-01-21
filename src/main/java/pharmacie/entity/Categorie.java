@@ -27,9 +27,10 @@ public class Categorie {
 	@Column(length = 255)
 	private String description;
 
-	@ToString.Exclude
-	// CascadeType.ALL signifie que toutes les opérations CRUD sur la catégorie sont également appliquées à ses médicaments
-	@OneToMany(cascade = {CascadeType.ALL}, mappedBy = "categorie")
-	private List<Medicament> medicaments = new LinkedList<>();
+	
+
+	@OneToMany(mappedBy = "categorie")
+    @OrderBy("nom ASC")
+    private List<Medicament> medicaments;
 
 }

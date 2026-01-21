@@ -41,29 +41,23 @@ INSERT INTO MEDICAMENT (REFERENCE, NOM, QUANTITE_PAR_UNITE, PRIX_UNITAIRE, UNITE
 INSERT INTO MEDICAMENT (REFERENCE, NOM, QUANTITE_PAR_UNITE, PRIX_UNITAIRE, UNITES_EN_STOCK, UNITES_COMMANDEES, NIVEAU_DE_REAPPRO, INDISPONIBLE, IMAGEURL, CATEGORIE_CODE) VALUES
                                                                                                                                                                    (DEFAULT, 'Metformine 500mg', 'Boîte de 60 comprimés', 6.80, 300, 0, 30, false, 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400', 5);
 
--- Insertion des adresses postales
-INSERT INTO ADRESSE_POSTALE (ID, ADRESSE, VILLE, REGION, CODE_POSTAL, PAYS) VALUES
-                                                                             (DEFAULT, '123 Boulevard de la République', 'Paris', 'Île-de-France', '75001', 'France'),
-                                                                             (DEFAULT, '456 Rue de Lyon', 'Lyon', 'Auvergne-Rhône-Alpes', '69000', 'France'),
-                                                                             (DEFAULT, '789 Avenue de la Liberté', 'Marseille', 'Provence-Alpes-Côte d''Azur', '13000', 'France'),
-                                                                             (DEFAULT, '321 Rue Jean Jaurès', 'Toulouse', 'Occitanie', '31000', 'France'),
-                                                                             (DEFAULT, '654 Boulevard Saint-Germain', 'Paris', 'Île-de-France', '75005', 'France');
-
 -- Insertion des dispensaires (établissements de santé)
-INSERT INTO DISPENSAIRE (CODE, NOM, CONTACT, FONCTION, TELEPHONE, FAX, ADRESSE_ID) VALUES
-                                                                                        ('DSP001', 'Hôpital Central Paris', 'Dr. Jean Dupont', 'Responsable Pharmacie', '01-45-38-22-05', '01-45-38-22-99', 1),
-                                                                                        ('DSP002', 'Clinique Lyon Nord', 'Mme Sophie Martin', 'Directrice Administrative', '04-72-25-19-86', '04-72-25-19-87', 2),
-                                                                                        ('DSP003', 'Centre Médical Marseille', 'Dr. Pierre Bernard', 'Chef de Service', '04-91-38-48-50', '04-91-38-48-51', 3),
-                                                                                        ('DSP004', 'Dispensaire Toulouse', 'Mme Marie Leclerc', 'Coordonnatrice', '05-61-53-28-22', '05-61-53-28-23', 4),
-                                                                                        ('DSP005', 'Polyclinique Sorbonne', 'Dr. François Rousseau', 'Pharmacien en Chef', '01-55-27-98-00', '01-55-27-98-01', 5);
+-- Adresses sont maintenant intégrées dans la table DISPENSAIRE
+INSERT INTO DISPENSAIRE (CODE, NOM, CONTACT, FONCTION, TELEPHONE, FAX, ADRESSE, VILLE, REGION, CODE_POSTAL, PAYS) VALUES
+                                                                                        ('DSP001', 'Hôpital Central Paris', 'Dr. Jean Dupont', 'Responsable Pharmacie', '01-45-38-22-05', '01-45-38-22-99', '123 Boulevard de la République', 'Paris', 'Île-de-France', '75001', 'France'),
+                                                                                        ('DSP002', 'Clinique Lyon Nord', 'Mme Sophie Martin', 'Directrice Administrative', '04-72-25-19-86', '04-72-25-19-87', '456 Rue de Lyon', 'Lyon', 'Auvergne-Rhône-Alpes', '69000', 'France'),
+                                                                                        ('DSP003', 'Centre Médical Marseille', 'Dr. Pierre Bernard', 'Chef de Service', '04-91-38-48-50', '04-91-38-48-51', '789 Avenue de la Liberté', 'Marseille', 'Provence-Alpes-Côte d''Azur', '13000', 'France'),
+                                                                                        ('DSP004', 'Dispensaire Toulouse', 'Mme Marie Leclerc', 'Coordonnatrice', '05-61-53-28-22', '05-61-53-28-23', '321 Rue Jean Jaurès', 'Toulouse', 'Occitanie', '31000', 'France'),
+                                                                                        ('DSP005', 'Polyclinique Sorbonne', 'Dr. François Rousseau', 'Pharmacien en Chef', '01-55-27-98-00', '01-55-27-98-01', '654 Boulevard Saint-Germain', 'Paris', 'Île-de-France', '75005', 'France');
 
 -- Insertion des commandes
-INSERT INTO COMMANDE (NUMERO, SAISIE_LE, ENVOYEE_LE, PORT, DISTINATAIRE, REMISE, DISPENSAIRE_CODE, ADRESSE_ID) VALUES
-                                                                                                                   (DEFAULT, CAST('2024-12-01 10:30:00' AS TIMESTAMP), CAST('2024-12-05 14:00:00' AS TIMESTAMP), 15.50, 'Hôpital Central Paris', 10.00, 'DSP001', 1),
-                                                                                                                   (DEFAULT, CAST('2025-01-03 09:15:00' AS TIMESTAMP), NULL, 20.00, 'Clinique Lyon Nord', 5.00, 'DSP002', 2),
-                                                                                                                   (DEFAULT, CAST('2025-01-05 11:45:00' AS TIMESTAMP), CAST('2025-01-08 16:30:00' AS TIMESTAMP), 18.75, 'Centre Médical Marseille', 8.50, 'DSP003', 3),
-                                                                                                                   (DEFAULT, CAST('2025-01-07 14:20:00' AS TIMESTAMP), NULL, 22.00, 'Dispensaire Toulouse', 0.00, 'DSP004', 4),
-                                                                                                                   (DEFAULT, CAST('2025-01-10 08:00:00' AS TIMESTAMP), CAST('2025-01-12 10:00:00' AS TIMESTAMP), 12.50, 'Polyclinique Sorbonne', 15.00, 'DSP005', 5);
+-- Adresses sont maintenant intégrées dans la table COMMANDE
+INSERT INTO COMMANDE (NUMERO, SAISIE_LE, ENVOYEE_LE, PORT, DISTINATAIRE, REMISE, DISPENSAIRE_CODE, ADRESSE, VILLE, REGION, CODE_POSTAL, PAYS) VALUES
+                                                                                                                   (DEFAULT, CAST('2024-12-01 10:30:00' AS TIMESTAMP), CAST('2024-12-05 14:00:00' AS TIMESTAMP), 15.50, 'Hôpital Central Paris', 10.00, 'DSP001', '123 Boulevard de la République', 'Paris', 'Île-de-France', '75001', 'France'),
+                                                                                                                   (DEFAULT, CAST('2025-01-03 09:15:00' AS TIMESTAMP), NULL, 20.00, 'Clinique Lyon Nord', 5.00, 'DSP002', '456 Rue de Lyon', 'Lyon', 'Auvergne-Rhône-Alpes', '69000', 'France'),
+                                                                                                                   (DEFAULT, CAST('2025-01-05 11:45:00' AS TIMESTAMP), CAST('2025-01-08 16:30:00' AS TIMESTAMP), 18.75, 'Centre Médical Marseille', 8.50, 'DSP003', '789 Avenue de la Liberté', 'Marseille', 'Provence-Alpes-Côte d''Azur', '13000', 'France'),
+                                                                                                                   (DEFAULT, CAST('2025-01-07 14:20:00' AS TIMESTAMP), NULL, 22.00, 'Dispensaire Toulouse', 0.00, 'DSP004', '321 Rue Jean Jaurès', 'Toulouse', 'Occitanie', '31000', 'France'),
+                                                                                                                   (DEFAULT, CAST('2025-01-10 08:00:00' AS TIMESTAMP), CAST('2025-01-12 10:00:00' AS TIMESTAMP), 12.50, 'Polyclinique Sorbonne', 15.00, 'DSP005', '654 Boulevard Saint-Germain', 'Paris', 'Île-de-France', '75005', 'France');
 
 -- Insertion des lignes de commande
 -- Commande 1: Morphine et Étodolac

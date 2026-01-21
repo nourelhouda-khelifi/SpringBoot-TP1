@@ -41,17 +41,11 @@ public class Dispensaire {
 
     @OneToMany(
         mappedBy = "dispensaire",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
+        cascade = CascadeType.REMOVE
     )
     @ToString.Exclude
     private List<Commande> commandes;
 
-    @OneToOne(
-        cascade = CascadeType.ALL,
-        orphanRemoval = true,
-        optional = false
-    )
-    @JoinColumn(name = "adresse_id", nullable = false)
+    @Embedded
     private AdressePostale adresse;
 }

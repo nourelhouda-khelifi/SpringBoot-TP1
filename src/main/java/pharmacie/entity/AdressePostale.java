@@ -1,22 +1,15 @@
 package pharmacie.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-@Entity
+@Embeddable
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdressePostale {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE) // la clé est auto-générée par la BD, On ne veut pas de "setter"
-    private Integer Id;
 
     @NotBlank(message = "L'adresse ne peut pas être vide")
     @Size(min = 5, max = 150, message = "L'adresse doit contenir entre 5 et 150 caractères")
